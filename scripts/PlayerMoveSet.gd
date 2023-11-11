@@ -13,8 +13,20 @@ var current_state : PlayerState = PlayerState.IDLE
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-var walk_speed : float = 100.0 # to set
-var run_speed : float = 200.0 # to set
+var walk_speed : float = 100.0
+var run_speed : float = 200.0
+var hidden_sprite : Sprite = null
+var furniture_images : Array = []
+var has_mustache : bool = false
+
+func _ready() -> void:
+    var furniture_folder = "/" #path to folder furnitures
+    var furniture_files = Directory.new().list_dir(furniture_folder, false, true)
+    
+    for file in furniture_files:
+        if file.ends_with(".png"):
+            var texture = preload(furniture_folder + file)
+            furniture_images.append(texture)
 
 func _process(delta: float) -> void:
     match current_state:
@@ -40,6 +52,9 @@ func check_guard_collision() -> void:
 func handle_idle() -> void:
     if Input.is_action_pressed("ui_right"):
         start_walking()
+
+    if Input.is_action_pressed("hide_in_furniture"):
+        start_hiding_in_furniture()
 
 func handle_walk() -> void:
     var velocity : Vector2 = Vector2.ZERO
@@ -68,19 +83,31 @@ func handle_run() -> void:
     move_and_slide(velocity)
 
 func handle_fail() -> void:
-    # todo
-    pass
+    if animation_player:
+        animation_player.play("fail_animation")
+    # maybe show game over screen or reset level
 
 func handle_put_moustache() -> void:
-    # todo
-    pass
+    has_mustache = !has_mustache
+
+    if has_mustache:
+        # TODO: Replace 'mustache_variant.png' with actual mustache image
+        hidden_sprite.texture = preload("res://path/to/mustache_variant.png")
+    else:
+        hidden_sprite.texture = null # Normal inspector
 
 func handle_hide_in_furniture() -> void:
-    # todo
-    pass
+    if furniture_images.size() > 0:
+        var random_furniture_index = randi() % furniture_images.size()
+        hidden_sprite.texture = furniture_images[random_furniture_index]
+        hidden_sprite.visible = true
+        visible = false
 
 func start_walking() -> void:
     current_state = PlayerState.WALK
+
+func start_hiding_in_furniture() -> void:
+    current_state = PlayerState.HIDE_IN_FURNITURE
 
 func play_animation(animation_name: String) -> void:
     if animation_player:

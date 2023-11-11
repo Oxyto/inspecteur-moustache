@@ -14,8 +14,6 @@ var walk_speed : float = 50.0
 var run_speed : float = 100.0
 
 var target_player : Node2D = null
-
-# Define patrol points
 var patrol_points : Array = []
 var current_patrol_point : int = 0
 

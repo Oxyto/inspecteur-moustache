@@ -28,5 +28,6 @@ func detectUnconventionalInput() -> bool:
 
     return false
 
-func hideInNearestFurniture() -> void:
-    # hide in furniture
+    func hideInNearestFurniture() -> void:
+        var player = get_node("/root/Player")
+        player.start_hiding_in_furniture()
