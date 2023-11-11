@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr40mb3vhk7u"]
+[gd_scene load_steps=14 format=3 uid="uid://cr40mb3vhk7u"]
 
 [ext_resource type="Theme" uid="uid://drcploohw3e4v" path="res://themes/main_theme.tres" id="1_qqkgh"]
+[ext_resource type="Script" path="res://scripts/buttons/StartButton.gd" id="2_cn4nk"]
 [ext_resource type="Animation" uid="uid://2fdunocf0lbt" path="res://animations/button/ButtonsJiggle.res" id="2_nca0w"]
 [ext_resource type="Animation" uid="uid://p83vvapqwxjv" path="res://animations/button/ButtonsSpawn.res" id="3_bdkhg"]
+[ext_resource type="Script" path="res://scripts/buttons/QuitButton.gd" id="3_tgyav"]
 
 [sub_resource type="Animation" id="Animation_3cfu6"]
 length = 0.001
@@ -104,6 +106,7 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme = ExtResource("1_qqkgh")
 text = "Start"
+script = ExtResource("2_cn4nk")
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 48)
@@ -116,6 +119,7 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme = ExtResource("1_qqkgh")
 text = "Quit"
+script = ExtResource("3_tgyav")
 
 [node name="ButtonsAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VBoxContainer/Quit")
@@ -131,3 +135,6 @@ active = true
 parameters/Add2/add_amount = 1.0
 parameters/TimeScale/scale = 0.4
 "parameters/TimeScale 2/scale" = 0.2
+
+[connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_pressed"]
