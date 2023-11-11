@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tdcqhm25gubj"
-path="res://.godot/imported/Inspector.png-d1dbfc2e01f2ea7bb78c9ce76e1af990.ctex"
+uid="uid://jm0wxi4dc3ft"
+path="res://.godot/imported/meuble_m.png-029ba84f9f356d17684abe39be97cf55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Inspector.png"
-dest_files=["res://.godot/imported/Inspector.png-d1dbfc2e01f2ea7bb78c9ce76e1af990.ctex"]
+source_file="res://assets/images/textures/meuble_m.png"
+dest_files=["res://.godot/imported/meuble_m.png-029ba84f9f356d17684abe39be97cf55.ctex"]
 
 [params]
 
