@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mn82gext513j"
-path="res://.godot/imported/tiroir_m.png-ba9c643b9a8a49858c53e9309ad37807.ctex"
+uid="uid://cvh603wkgak83"
+path="res://.godot/imported/background.png-aff0a6f3b5557b909828c18d7e1cd9f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/tiroir_m.png"
-dest_files=["res://.godot/imported/tiroir_m.png-ba9c643b9a8a49858c53e9309ad37807.ctex"]
+source_file="res://assets/images/textures/background.png"
+dest_files=["res://.godot/imported/background.png-aff0a6f3b5557b909828c18d7e1cd9f7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jm0wxi4dc3ft"
-path="res://.godot/imported/meuble_m.png-029ba84f9f356d17684abe39be97cf55.ctex"
+uid="uid://cj6upmiduojos"
+path="res://.godot/imported/moustache.png-af7df11fbf938079c16c42df184ddefb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/meuble_m.png"
-dest_files=["res://.godot/imported/meuble_m.png-029ba84f9f356d17684abe39be97cf55.ctex"]
+source_file="res://assets/images/textures/moustache.png"
+dest_files=["res://.godot/imported/moustache.png-af7df11fbf938079c16c42df184ddefb.ctex"]
 
 [params]
 
