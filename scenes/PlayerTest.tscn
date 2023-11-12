@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://drxbpjrwx2381"]
+
+[ext_resource type="Script" path="res://scripts/PlayerMoveSet.gd" id="1_sg57e"]
+[ext_resource type="Texture2D" uid="uid://kjs1ewuays8j" path="res://assets/images/textures/inspector/Death/Death1.png" id="2_kuljh"]
+[ext_resource type="Texture2D" uid="uid://81fpfot4amun" path="res://assets/images/textures/inspector/Death/Death2.png" id="3_sde6s"]
+[ext_resource type="Texture2D" uid="uid://cbsr5kh2x005t" path="res://assets/images/textures/inspector/Death/Death3.png" id="4_baoi2"]
+[ext_resource type="Texture2D" uid="uid://bqpdgtj4yvlcd" path="res://assets/images/textures/inspector/Crouch1.png" id="5_o0dxu"]
+[ext_resource type="Texture2D" uid="uid://cakr7o7gwxn5u" path="res://assets/images/textures/inspector/Crouch2.png" id="6_auh1u"]
+[ext_resource type="Texture2D" uid="uid://cwa2h3k046lgd" path="res://assets/images/textures/inspector/Idle1.png" id="7_wcol0"]
+[ext_resource type="Texture2D" uid="uid://dx03kl6kagv01" path="res://assets/images/textures/inspector/Idle2.png" id="8_c15ej"]
+[ext_resource type="Texture2D" uid="uid://cilts0vu028lj" path="res://assets/images/textures/inspector/Walk1.png" id="9_j81qy"]
+[ext_resource type="Texture2D" uid="uid://fmolenj8uhtt" path="res://assets/images/textures/inspector/Walk2.png" id="10_d5tqg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oc7e7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kuljh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sde6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_baoi2")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o0dxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_auh1u")
+}],
+"loop": true,
+"name": &"Hide",
+"speed": 0.8
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wcol0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_c15ej")
+}],
+"loop": true,
+"name": &"LongIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_j81qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d5tqg")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 2.0
+}]
+
+[node name="Node2D" type="Area2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_sg57e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_oc7e7")
+animation = &"Hide"
+frame_progress = 0.48077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

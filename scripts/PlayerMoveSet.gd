@@ -11,7 +11,7 @@ enum PlayerState {
 
 var current_state : PlayerState = PlayerState.IDLE
 
-onready var animation_player : AnimationPlayer = $AnimationPlayer
+onready var animated_sprite : AnimatedSprite = $AnimatedSprite
 
 var walk_speed : float = 100.0
 var run_speed : float = 200.0
@@ -56,6 +56,9 @@ func handle_idle() -> void:
 	if Input.is_action_pressed("hide_in_furniture"):
 		start_hiding_in_furniture()
 
+	if !animation_player.is_playing():
+		animation_player.play("Idle")
+
 func handle_walk() -> void:
 	var velocity : Vector2 = Vector2.ZERO
 
@@ -69,6 +72,9 @@ func handle_walk() -> void:
 
 	move_and_slide(velocity)
 
+	if !animation_player.is_playing():
+		animation_player.play("Walk")
+
 func handle_run() -> void:
 	var velocity : Vector2 = Vector2.ZERO
 
@@ -81,6 +87,9 @@ func handle_run() -> void:
 		current_state = PlayerState.WALK
 
 	move_and_slide(velocity)
+
+	if !animation_player.is_playing():
+		animation_player.play("Run")
 
 func handle_fail() -> void:
 	if animation_player:

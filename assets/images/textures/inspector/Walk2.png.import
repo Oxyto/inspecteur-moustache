@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfv5nv03u8hrb"
-path="res://.godot/imported/Lamp_table.png-60b5b7a1a76c087d08c7587640f4aad0.ctex"
+uid="uid://fmolenj8uhtt"
+path="res://.godot/imported/Walk2.png-c85c56effc983d28501a592e023a8a7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Lamp_table.png"
-dest_files=["res://.godot/imported/Lamp_table.png-60b5b7a1a76c087d08c7587640f4aad0.ctex"]
+source_file="res://assets/images/textures/inspector/Walk2.png"
+dest_files=["res://.godot/imported/Walk2.png-c85c56effc983d28501a592e023a8a7b.ctex"]
 
 [params]
 

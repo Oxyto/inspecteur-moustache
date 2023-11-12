@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tdcqhm25gubj"
-path="res://.godot/imported/Inspector.png-d1dbfc2e01f2ea7bb78c9ce76e1af990.ctex"
+uid="uid://bqpdgtj4yvlcd"
+path="res://.godot/imported/Crouch1.png-00ba9618788e4bf78f2677167defab6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Inspector.png"
-dest_files=["res://.godot/imported/Inspector.png-d1dbfc2e01f2ea7bb78c9ce76e1af990.ctex"]
+source_file="res://assets/images/textures/inspector/Crouch1.png"
+dest_files=["res://.godot/imported/Crouch1.png-00ba9618788e4bf78f2677167defab6f.ctex"]
 
 [params]
 

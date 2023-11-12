@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfv5nv03u8hrb"
-path="res://.godot/imported/Lamp_table.png-60b5b7a1a76c087d08c7587640f4aad0.ctex"
+uid="uid://81fpfot4amun"
+path="res://.godot/imported/Death2.png-52399df9b875a15957e5f11a12d74172.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Lamp_table.png"
-dest_files=["res://.godot/imported/Lamp_table.png-60b5b7a1a76c087d08c7587640f4aad0.ctex"]
+source_file="res://assets/images/textures/inspector/Death/Death2.png"
+dest_files=["res://.godot/imported/Death2.png-52399df9b875a15957e5f11a12d74172.ctex"]
 
 [params]
 
