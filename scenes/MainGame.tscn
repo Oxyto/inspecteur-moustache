@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://pa8ah0xvqsk8"]
+[gd_scene load_steps=36 format=3 uid="uid://mxs34yfnqy5e"]
 
 [ext_resource type="Texture2D" uid="uid://cxk36qoh6rtu2" path="res://assets/images/textures/wall.png" id="1_wu7fi"]
 [ext_resource type="Script" path="res://scripts/GuardsMoveSet.gd" id="2_6qjyb"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://by0w30wp2s7h1" path="res://assets/images/textures/Furnitures/table_lamp.png" id="12_acql2"]
 [ext_resource type="Script" path="res://scripts/PlayerMoveSet.gd" id="13_nrvcr"]
 [ext_resource type="Texture2D" uid="uid://di02anq5t1mfg" path="res://assets/images/textures/inspector/Death.png" id="14_ljy8d"]
+[ext_resource type="Texture2D" uid="uid://br2pube8hk7e1" path="res://assets/images/textures/Furnitures/meuble_moustache.png" id="14_xg8ck"]
 [ext_resource type="Texture2D" uid="uid://kjs1ewuays8j" path="res://assets/images/textures/inspector/Death/Death1.png" id="15_vwu7m"]
 [ext_resource type="Texture2D" uid="uid://81fpfot4amun" path="res://assets/images/textures/inspector/Death/Death2.png" id="16_nney4"]
 [ext_resource type="Texture2D" uid="uid://cbsr5kh2x005t" path="res://assets/images/textures/inspector/Death/Death3.png" id="17_qag70"]
@@ -398,3 +399,21 @@ frame_progress = 0.707157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Impector"]
 shape = SubResource("RectangleShape2D_5606x")
+
+[node name="Camouflage" type="TextureRect" parent="Impector"]
+visible = false
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 475.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_xg8ck")
+stretch_mode = 3

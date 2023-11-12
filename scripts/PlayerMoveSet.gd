@@ -10,23 +10,35 @@ enum PlayerState {
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var character_body : CharacterBody2D = $"."
+@onready var camouflage: TextureRect = $"Camouflage"
 
 const RUN_SPEED : float = 300
-const INPUT_THRESHOLD : int = 7
-const TIME_FRAME : float = 10
+const INPUT_THRESHOLD: int = 7
+const TIME_FRAME: float = 10
 
 @onready var was_input_pressed_last_frame: bool = false
-@onready var input_count : int = 0
-@onready var time_frame_start : float = 0.0
+@onready var input_count: int = 0
+@onready var time_frame_start: float = 0.0
+@onready var is_invisible: bool = false
+
+func toggle_appearance():
+	if is_invisible:
+		animated_sprite.set_visible(true)
+		camouflage.set_visible(false)
+		is_invisible = false
+	else:
+		animated_sprite.set_visible(false)
+		camouflage.set_visible(true)
+		is_invisible = true
 
 func handle_idle(delta) -> void:
 	animated_sprite.play("Idle")
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and not is_invisible:
 		character_body.position.x += RUN_SPEED * delta
 		character_body.scale.x = abs(character_body.scale.x)
 		start_running()
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") and not is_invisible:
 		character_body.position.x -= RUN_SPEED * delta
 		character_body.scale.x = -abs(character_body.scale.x)
 		start_running()
@@ -36,10 +48,10 @@ func handle_idle(delta) -> void:
 func handle_run(delta) -> void:
 	animated_sprite.play("Run")
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and not is_invisible:
 		character_body.position.x += RUN_SPEED * delta
 		character_body.scale.x = abs(character_body.scale.x)
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") and not is_invisible:
 		character_body.position.x -= RUN_SPEED * delta
 		character_body.scale.x = -abs(character_body.scale.x)
 	else:
@@ -81,10 +93,12 @@ func check_input_threshold(delta: float) -> void:
 
 		if elapsed_time <= TIME_FRAME:
 			print("Panic action triggered!")
+			toggle_appearance()
 			input_count = 0
 			time_frame_start = 0.0
 		else:
 			print("Time frame elapsed!")
+			toggle_appearance()
 			input_count = 0
 			time_frame_start = 0.0
 	elif time_frame_start != 0.0:
