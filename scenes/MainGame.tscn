@@ -197,6 +197,7 @@ position = Vector2(4000, 0)
 disable_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard"]
+texture_filter = 1
 position = Vector2(84, 828)
 sprite_frames = SubResource("SpriteFrames_r8ha7")
 frame_progress = 0.689424
@@ -206,6 +207,7 @@ shape = SubResource("RectangleShape2D_h1bpg")
 
 [node name="meuble" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 1091.0
 offset_top = 721.0
 offset_right = 1297.0
@@ -215,6 +217,7 @@ expand_mode = 1
 
 [node name="table" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 1425.0
 offset_top = 815.0
 offset_right = 1551.0
@@ -224,6 +227,7 @@ expand_mode = 1
 
 [node name="armoire" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 610.0
 offset_top = 670.0
 offset_right = 842.0
@@ -233,6 +237,7 @@ expand_mode = 1
 
 [node name="table_lamp" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 310.0
 offset_top = 759.0
 offset_right = 448.0
@@ -242,6 +247,7 @@ expand_mode = 1
 
 [node name="meuble2" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 2013.0
 offset_top = 732.0
 offset_right = 2219.0
@@ -252,6 +258,7 @@ expand_mode = 1
 [node name="table2" type="TextureRect" parent="."]
 z_as_relative = false
 y_sort_enabled = true
+texture_filter = 1
 offset_left = 2565.0
 offset_top = 829.0
 offset_right = 2691.0
@@ -261,6 +268,7 @@ expand_mode = 1
 
 [node name="armoire2" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 2953.0
 offset_top = 681.0
 offset_right = 3185.0
@@ -270,6 +278,7 @@ expand_mode = 1
 
 [node name="table_lamp2" type="TextureRect" parent="."]
 z_as_relative = false
+texture_filter = 1
 offset_left = 3384.0
 offset_top = 761.0
 offset_right = 3522.0
@@ -346,6 +355,7 @@ scale = Vector2(4, 4)
 script = ExtResource("13_nrvcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Impector"]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rtxtc")
 animation = &"Run"
 frame_progress = 0.707157
