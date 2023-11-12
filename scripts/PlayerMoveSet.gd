@@ -6,14 +6,14 @@ enum PlayerState {
 	DEATH
 }
 
-var current_state : PlayerState = PlayerState.IDLE
+@onready var current_state : PlayerState = PlayerState.IDLE
 
-@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
-@onready var character_body : CharacterBody2D = $CharacterBody2D
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var character_body : CharacterBody2D = $"."
 
-var run_speed : float = 200.0
+const RUN_SPEED : float = 0.05
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match current_state:
 		PlayerState.IDLE:
 			handle_idle()
@@ -23,21 +23,28 @@ func _process(delta: float) -> void:
 			handle_death()
 
 func handle_idle() -> void:
-	if character_body.is_on_floor():
-		animated_sprite.play("Idle")
+	animated_sprite.play("Idle")
 
 	if Input.is_action_pressed("ui_right"):
-		character_body.velocity.x = run_speed
+		character_body.position.x += RUN_SPEED
+		character_body.scale.x = abs(character_body.scale.x)
 		start_running()
+	elif Input.is_action_pressed("ui_left"):
+		character_body.position.x -= RUN_SPEED
+		character_body.scale.x = -abs(character_body.scale.x)
+		start_running()
+	else:
+		start_idling()
 
 func handle_run() -> void:
-	if character_body.is_on_floor():
-		animated_sprite.play("Run")
-	else:
-		animated_sprite.play("Jump")
+	animated_sprite.play("Run")
 
 	if Input.is_action_pressed("ui_right"):
-		character_body.velocity.x = run_speed
+		character_body.position.x += RUN_SPEED
+		character_body.scale.x = abs(character_body.scale.x)
+	elif Input.is_action_pressed("ui_left"):
+		character_body.position.x -= RUN_SPEED
+		character_body.scale.x = -abs(character_body.scale.x)
 	else:
 		start_idling()
 
