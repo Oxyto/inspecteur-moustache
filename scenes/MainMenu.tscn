@@ -49,6 +49,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_rpwr6"]
 resource_name = "moustache_grow"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,10 +57,10 @@ tracks/0/path = NodePath("../../Moustache:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 0.5, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kw8wv"]
@@ -90,7 +91,7 @@ animation = &"Buttons Jiggle"
 animation = &"moustache_grow"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8ixnb"]
-graph_offset = Vector2(-498.686, 238.439)
+graph_offset = Vector2(-506.946, 343.233)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_dd7t1")
 nodes/Add2/position = Vector2(180, 220)
 "nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_ih7g1")
@@ -108,7 +109,7 @@ nodes/TimeScale/position = Vector2(-80, 300)
 nodes/moustache_grow/node = SubResource("AnimationNodeAnimation_bh8vv")
 nodes/moustache_grow/position = Vector2(-380, 560)
 nodes/output/position = Vector2(720, 300)
-node_connections = [&"output", 0, &"Add2 2", &"TimeScale", 0, &"Animation", &"TimeScale 2", 0, &"Buttons Jiggle", &"TimeScale 3", 0, &"moustache_grow", &"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"TimeScale 3"]
+node_connections = [&"output", 0, &"Add2 2", &"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"TimeScale 3", &"TimeScale", 0, &"Animation", &"TimeScale 2", 0, &"Buttons Jiggle", &"TimeScale 3", 0, &"moustache_grow"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -137,10 +138,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 448.0
-offset_top = 196.0
-offset_right = 704.0
-offset_bottom = 452.004
+offset_left = -352.0
+offset_top = -254.0
+offset_right = -96.0
+offset_bottom = 2.00409
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 6.28319
@@ -182,7 +183,7 @@ parameters/Add2/add_amount = 1.0
 "parameters/Add2 2/add_amount" = 0.89
 parameters/TimeScale/scale = 0.4
 "parameters/TimeScale 2/scale" = 0.2
-"parameters/TimeScale 3/scale" = 1.35
+"parameters/TimeScale 3/scale" = 0.5
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(0, 128)
@@ -202,12 +203,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Moustache" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 682.0
-offset_top = 296.0
-offset_right = 940.0
-offset_bottom = 418.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(128, 64)
 texture = ExtResource("7_2i1um")
 expand_mode = 1
 
