@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr40mb3vhk7u"]
+[gd_scene load_steps=20 format=3 uid="uid://cr40mb3vhk7u"]
 
 [ext_resource type="Texture2D" uid="uid://cvh603wkgak83" path="res://assets/images/textures/background.png" id="1_jhgw8"]
 [ext_resource type="Theme" uid="uid://drcploohw3e4v" path="res://themes/main_theme.tres" id="1_qqkgh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Animation" uid="uid://2fdunocf0lbt" path="res://animations/button/ButtonsJiggle.res" id="2_nca0w"]
 [ext_resource type="Animation" uid="uid://p83vvapqwxjv" path="res://animations/button/ButtonsSpawn.res" id="3_bdkhg"]
 [ext_resource type="Script" path="res://scripts/buttons/QuitButton.gd" id="3_tgyav"]
+[ext_resource type="Texture2D" uid="uid://cj6upmiduojos" path="res://assets/images/textures/moustache.png" id="7_2i1um"]
 
 [sub_resource type="Animation" id="Animation_3cfu6"]
 length = 0.001
@@ -33,15 +34,45 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(448, 196)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Moustache:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_rpwr6"]
+resource_name = "moustache_grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Moustache:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kw8wv"]
 _data = {
 "Buttons Jiggle": ExtResource("2_nca0w"),
 "Buttons Spawn": ExtResource("3_bdkhg"),
-"RESET": SubResource("Animation_3cfu6")
+"RESET": SubResource("Animation_3cfu6"),
+"moustache_grow": SubResource("Animation_rpwr6")
 }
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_1fgir"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_ih7g1"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_dd7t1"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2vfqn"]
 animation = &"Buttons Spawn"
@@ -51,11 +82,19 @@ animation = &"Buttons Jiggle"
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uei4m"]
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_udppi"]
+
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wc1nb"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bh8vv"]
+animation = &"moustache_grow"
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8ixnb"]
-nodes/Add2/node = SubResource("AnimationNodeAdd2_1fgir")
-nodes/Add2/position = Vector2(100, 160)
+graph_offset = Vector2(-498.686, 238.439)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_dd7t1")
+nodes/Add2/position = Vector2(180, 220)
+"nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_ih7g1")
+"nodes/Add2 2/position" = Vector2(435.241, 455.736)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_2vfqn")
 nodes/Animation/position = Vector2(-280, 300)
 "nodes/Buttons Jiggle/node" = SubResource("AnimationNodeAnimation_1yngd")
@@ -64,7 +103,12 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_wc1nb")
 nodes/TimeScale/position = Vector2(-80, 300)
 "nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_uei4m")
 "nodes/TimeScale 2/position" = Vector2(-60, 100)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"TimeScale", 0, &"Animation", &"TimeScale 2", 0, &"Buttons Jiggle"]
+"nodes/TimeScale 3/node" = SubResource("AnimationNodeTimeScale_udppi")
+"nodes/TimeScale 3/position" = Vector2(-100, 500)
+nodes/moustache_grow/node = SubResource("AnimationNodeAnimation_bh8vv")
+nodes/moustache_grow/position = Vector2(-380, 560)
+nodes/output/position = Vector2(720, 300)
+node_connections = [&"output", 0, &"Add2 2", &"TimeScale", 0, &"Animation", &"TimeScale 2", 0, &"Buttons Jiggle", &"TimeScale 3", 0, &"moustache_grow", &"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"TimeScale 3"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -96,7 +140,7 @@ anchor_bottom = 0.5
 offset_left = -352.0
 offset_top = -254.0
 offset_right = -96.0
-offset_bottom = 2.00385
+offset_bottom = 2.00464
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 6.28319
@@ -123,7 +167,7 @@ theme = ExtResource("1_qqkgh")
 text = "Quit"
 script = ExtResource("3_tgyav")
 
-[node name="ButtonsAnimation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VBoxContainer/Quit")
 autoplay = "Buttons Spawn"
 libraries = {
@@ -132,11 +176,13 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_8ixnb")
-anim_player = NodePath("../ButtonsAnimation")
+anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 1.0
+"parameters/Add2 2/add_amount" = 0.89
 parameters/TimeScale/scale = 0.4
 "parameters/TimeScale 2/scale" = 0.2
+"parameters/TimeScale 3/scale" = 1.35
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(0, 128)
@@ -154,6 +200,16 @@ theme_override_font_sizes/font_size = 64
 text = "Inspecteur Moustache"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Moustache" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 296.0
+offset_right = 940.0
+offset_bottom = 418.0
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_2i1um")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_pressed"]
