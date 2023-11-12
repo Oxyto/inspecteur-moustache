@@ -1,78 +1,34 @@
-extends KinematicBody2D
+extends Node2D
 
 enum GuardState {
-	IDLE,
-	WALK,
-	RUN,
-	BATON_ATTACK,
-	PATROL
+	PATROL,
 }
 
-var current_state : GuardState = GuardState.IDLE
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-var walk_speed : float = 50.0
-var run_speed : float = 100.0
+const PATROL_SPEED : float = 100  # Adjust the patrol speed as needed
+const PATROL_DISTANCE : float = 1000  # Adjust the patrol distance as needed
 
-var target_player : Node2D = null
-var patrol_points : Array = []
-var current_patrol_point : int = 0
+var current_state : GuardState = GuardState.PATROL
+var patrol_direction : int = 1  # 1 for right, -1 for left
+var patrol_start_position : Vector2
+
+func _ready() -> void:
+	animated_sprite.play("patrol")
+	patrol_start_position = position
 
 func _process(delta: float) -> void:
 	match current_state:
-		GuardState.IDLE:
-			handle_idle()
-		GuardState.WALK:
-			handle_walk()
-		GuardState.RUN:
-			handle_run()
-		GuardState.BATON_ATTACK:
-			handle_baton_attack()
 		GuardState.PATROL:
-			handle_patrol()
+			handle_patrol(delta)
 
-	check_player_detection()
+func handle_patrol(delta: float) -> void:
+	# Move the guard
+	var patrol_movement = Vector2(PATROL_SPEED * patrol_direction, 0)
+	translate(patrol_movement * delta)
 
-func check_player_detection() -> void:
-	if target_player:
-		var distance_to_player : float = global_position.distance_to(target_player.global_position)
-		if distance_to_player < light_radius:
-			start_walking_towards_player()
-
-func handle_idle() -> void:
-	pass
-
-func handle_walk() -> void:
-	if target_player:
-		var direction : Vector2 = (target_player.global_position - global_position).normalized()
-		move_and_slide(direction * walk_speed)
-
-func handle_run() -> void:
-	if target_player:
-		var direction : Vector2 = (target_player.global_position - global_position).normalized()
-		move_and_slide(direction * run_speed)
-
-func handle_baton_attack() -> void:
-	pass
-
-func handle_patrol() -> void:
-	if patrol_points.size() > 0:
-		var target_point : Vector2 = patrol_points[current_patrol_point]
-		var direction : Vector2 = (target_point - global_position).normalized()
-		move_and_slide(direction * walk_speed)
-
-		if global_position.distance_to(target_point) < 5.0: # patrol
-			current_patrol_point = (current_patrol_point + 1) % patrol_points.size()
-
-func set_target_player(player: Node2D) -> void:
-	target_player = player
-
-func start_walking() -> void:
-	current_state = GuardState.WALK
-
-func start_baton_attack() -> void:
-	current_state = GuardState.BATON_ATTACK
-
-func start_patrol(points: Array) -> void:
-	current_state = GuardState.PATROL
-	patrol_points = points
-	current_patrol_point = 0
+	# Check if the guard reached the patrol limit
+	if abs(position.x - patrol_start_position.x) > PATROL_DISTANCE:
+		# Change direction and flip sprite
+		patrol_direction *= -1
+		animated_sprite.scale.x *= -1
