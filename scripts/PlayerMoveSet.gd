@@ -11,7 +11,7 @@ enum PlayerState {
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var character_body : CharacterBody2D = $"."
 
-const RUN_SPEED : float = 0.05
+const RUN_SPEED : float = 0.40
 
 func _process(_delta: float) -> void:
 	match current_state:

@@ -348,7 +348,7 @@ script = ExtResource("13_nrvcr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Impector"]
 sprite_frames = SubResource("SpriteFrames_rtxtc")
 animation = &"Run"
-frame_progress = 0.618883
+frame_progress = 0.707157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Impector"]
 shape = SubResource("RectangleShape2D_5606x")
