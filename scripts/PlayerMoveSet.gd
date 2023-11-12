@@ -21,6 +21,9 @@ const TIME_FRAME: float = 10
 @onready var time_frame_start: float = 0.0
 @onready var is_invisible: bool = false
 
+func kill():
+	get_tree().change_scene_to_file("res://scenes/MainGame.tscn")
+
 func toggle_appearance():
 	if is_invisible:
 		animated_sprite.set_visible(true)
@@ -68,6 +71,8 @@ func start_idling() -> void:
 
 func _process(delta: float) -> void:
 	check_input_threshold(delta)
+	
+	
 
 	match current_state:
 		PlayerState.IDLE:

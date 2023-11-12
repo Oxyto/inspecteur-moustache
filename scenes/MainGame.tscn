@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://mxs34yfnqy5e"]
+[gd_scene load_steps=38 format=3 uid="uid://mxs34yfnqy5e"]
 
+[ext_resource type="Script" path="res://scripts/CameraFollow.gd" id="1_dencb"]
 [ext_resource type="Texture2D" uid="uid://cxk36qoh6rtu2" path="res://assets/images/textures/wall.png" id="1_wu7fi"]
 [ext_resource type="Script" path="res://scripts/GuardsMoveSet.gd" id="2_6qjyb"]
 [ext_resource type="Texture2D" uid="uid://d0iobmifdd12n" path="res://assets/images/textures/shield/tile000.png" id="2_fe6yw"]
@@ -137,6 +138,11 @@ animations = [{
 size = Vector2(27, 37)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_dencb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(800, 450)
+position_smoothing_enabled = true
 
 [node name="Background2" type="TextureRect" parent="."]
 texture_filter = 1
