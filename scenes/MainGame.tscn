@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://mxs34yfnqy5e"]
+[gd_scene load_steps=37 format=3 uid="uid://mxs34yfnqy5e"]
 
 [ext_resource type="Texture2D" uid="uid://cxk36qoh6rtu2" path="res://assets/images/textures/wall.png" id="1_wu7fi"]
 [ext_resource type="Script" path="res://scripts/GuardsMoveSet.gd" id="2_6qjyb"]
@@ -200,6 +200,7 @@ disable_mode = 2
 script = ExtResource("2_6qjyb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-3500, 828)
 sprite_frames = SubResource("SpriteFrames_r8ha7")
@@ -216,6 +217,7 @@ disable_mode = 2
 script = ExtResource("2_6qjyb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard3"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-3500, 828)
 sprite_frames = SubResource("SpriteFrames_r8ha7")
@@ -232,6 +234,7 @@ disable_mode = 2
 script = ExtResource("2_6qjyb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard2"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-3500, 828)
 sprite_frames = SubResource("SpriteFrames_r8ha7")
@@ -386,24 +389,24 @@ offset_right = 4401.0
 offset_bottom = 900.0
 texture = ExtResource("1_wu7fi")
 
-[node name="Impector" type="CharacterBody2D" parent="."]
+[node name="Inspector" type="CharacterBody2D" parent="."]
 position = Vector2(100, 828)
 scale = Vector2(4, 4)
 script = ExtResource("13_nrvcr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Impector"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Inspector"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rtxtc")
 animation = &"Run"
 frame_progress = 0.707157
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Impector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inspector"]
 shape = SubResource("RectangleShape2D_5606x")
 
-[node name="Camouflage" type="TextureRect" parent="Impector"]
+[node name="Camouflage" type="TextureRect" parent="Inspector"]
 visible = false
 texture_filter = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
