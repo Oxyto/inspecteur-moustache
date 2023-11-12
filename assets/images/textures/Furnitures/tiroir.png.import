@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by0w30wp2s7h1"
-path="res://.godot/imported/table_lamp.png-58a0919e7f8b0d1526a68c3b0e79f147.ctex"
+uid="uid://bq37aklpkrt5g"
+path="res://.godot/imported/tiroir.png-d940ea186983d04354cee362a1dd5eee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/table_lamp.png"
-dest_files=["res://.godot/imported/table_lamp.png-58a0919e7f8b0d1526a68c3b0e79f147.ctex"]
+source_file="res://assets/images/textures/Furnitures/tiroir.png"
+dest_files=["res://.godot/imported/tiroir.png-d940ea186983d04354cee362a1dd5eee.ctex"]
 
 [params]
 

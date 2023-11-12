@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4skhdssc6d7n"
-path="res://.godot/imported/pixel_table.png-a39945928b07837cedeb5954078872a6.ctex"
+uid="uid://dpdlg2rmrqj4u"
+path="res://.godot/imported/Inspector.png-13e7e4e63fb3250c019a840d0bb7cfbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/pixel_table.png"
-dest_files=["res://.godot/imported/pixel_table.png-a39945928b07837cedeb5954078872a6.ctex"]
+source_file="res://assets/images/textures/inspector/Inspector.png"
+dest_files=["res://.godot/imported/Inspector.png-13e7e4e63fb3250c019a840d0bb7cfbe.ctex"]
 
 [params]
 

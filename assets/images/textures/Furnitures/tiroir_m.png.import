@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cakr7o7gwxn5u"
-path="res://.godot/imported/Crouch2.png-d809dcac582677fb750d008a553fa24e.ctex"
+uid="uid://csxl1bj481kvf"
+path="res://.godot/imported/tiroir_m.png-a71e8382dc9aa9b5d1e898f444991da5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/inspector/Crouch2.png"
-dest_files=["res://.godot/imported/Crouch2.png-d809dcac582677fb750d008a553fa24e.ctex"]
+source_file="res://assets/images/textures/Furnitures/tiroir_m.png"
+dest_files=["res://.godot/imported/tiroir_m.png-a71e8382dc9aa9b5d1e898f444991da5.ctex"]
 
 [params]
 
