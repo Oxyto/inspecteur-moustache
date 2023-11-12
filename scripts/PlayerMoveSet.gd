@@ -11,7 +11,7 @@ enum PlayerState {
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var character_body : CharacterBody2D = $"."
 
-const RUN_SPEED : float = 0.05
+const RUN_SPEED : float = 300
 const INPUT_THRESHOLD : int = 7
 const TIME_FRAME : float = 10
 
@@ -19,28 +19,28 @@ const TIME_FRAME : float = 10
 @onready var input_count : int = 0
 @onready var time_frame_start : float = 0.0
 
-func handle_idle() -> void:
+func handle_idle(delta) -> void:
 	animated_sprite.play("Idle")
 
 	if Input.is_action_pressed("ui_right"):
-		character_body.position.x += RUN_SPEED
+		character_body.position.x += RUN_SPEED * delta
 		character_body.scale.x = abs(character_body.scale.x)
 		start_running()
 	elif Input.is_action_pressed("ui_left"):
-		character_body.position.x -= RUN_SPEED
+		character_body.position.x -= RUN_SPEED * delta
 		character_body.scale.x = -abs(character_body.scale.x)
 		start_running()
 	else:
 		start_idling()
 
-func handle_run() -> void:
+func handle_run(delta) -> void:
 	animated_sprite.play("Run")
 
 	if Input.is_action_pressed("ui_right"):
-		character_body.position.x += RUN_SPEED
+		character_body.position.x += RUN_SPEED * delta
 		character_body.scale.x = abs(character_body.scale.x)
 	elif Input.is_action_pressed("ui_left"):
-		character_body.position.x -= RUN_SPEED
+		character_body.position.x -= RUN_SPEED * delta
 		character_body.scale.x = -abs(character_body.scale.x)
 	else:
 		start_idling()
@@ -59,9 +59,9 @@ func _process(delta: float) -> void:
 
 	match current_state:
 		PlayerState.IDLE:
-			handle_idle()
+			handle_idle(delta)
 		PlayerState.RUN:
-			handle_run()
+			handle_run(delta)
 		PlayerState.DEATH:
 			handle_death()
 
