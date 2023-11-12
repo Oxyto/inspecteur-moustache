@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwa2h3k046lgd"
-path="res://.godot/imported/Idle1.png-8b73ab577fc50c38d12b1a1e2aab31b0.ctex"
+uid="uid://bw6ilrcldt0i3"
+path="res://.godot/imported/armoire_m.png-5985e567d20ceb909b4b8a1c04284ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/inspector/Idle1.png"
-dest_files=["res://.godot/imported/Idle1.png-8b73ab577fc50c38d12b1a1e2aab31b0.ctex"]
+source_file="res://assets/images/textures/Furnitures/armoire_m.png"
+dest_files=["res://.godot/imported/armoire_m.png-5985e567d20ceb909b4b8a1c04284ce5.ctex"]
 
 [params]
 

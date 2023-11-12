@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://r2q37gfsw5ol"]
-
-[ext_resource type="Texture2D" path="res://assets/images/textures/Inspector.png" id="1_uidqe"]
+[gd_scene format=3 uid="uid://r2q37gfsw5ol"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,4 +8,3 @@ position = Vector2(211, 169)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_uidqe")

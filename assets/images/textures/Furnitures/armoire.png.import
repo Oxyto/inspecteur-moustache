@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqpdgtj4yvlcd"
-path="res://.godot/imported/Crouch1.png-00ba9618788e4bf78f2677167defab6f.ctex"
+uid="uid://bdou6hhitm8b5"
+path="res://.godot/imported/armoire.png-24982b28b2106e2eacb22d2956eab8b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/inspector/Crouch1.png"
-dest_files=["res://.godot/imported/Crouch1.png-00ba9618788e4bf78f2677167defab6f.ctex"]
+source_file="res://assets/images/textures/Furnitures/armoire.png"
+dest_files=["res://.godot/imported/armoire.png-24982b28b2106e2eacb22d2956eab8b0.ctex"]
 
 [params]
 

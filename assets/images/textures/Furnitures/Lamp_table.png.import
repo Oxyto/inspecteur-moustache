@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdou6hhitm8b5"
-path="res://.godot/imported/armoire.png-ae63078da5ec87bffa9d3d05a8ea6165.ctex"
+uid="uid://bfv5nv03u8hrb"
+path="res://.godot/imported/Lamp_table.png-d147af4980f00ddb0a8a5d90273257d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/armoire.png"
-dest_files=["res://.godot/imported/armoire.png-ae63078da5ec87bffa9d3d05a8ea6165.ctex"]
+source_file="res://assets/images/textures/Furnitures/Lamp_table.png"
+dest_files=["res://.godot/imported/Lamp_table.png-d147af4980f00ddb0a8a5d90273257d6.ctex"]
 
 [params]
 
