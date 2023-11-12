@@ -209,6 +209,38 @@ frame_progress = 0.377228
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard"]
 shape = SubResource("RectangleShape2D_h1bpg")
 
+[node name="Guard3" type="CharacterBody2D" parent="."]
+position = Vector2(8000, 0)
+disable_mode = 2
+script = ExtResource("2_6qjyb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard3"]
+texture_filter = 1
+position = Vector2(-3500, 828)
+sprite_frames = SubResource("SpriteFrames_r8ha7")
+animation = &"patrol"
+frame = 5
+frame_progress = 0.377228
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3"]
+shape = SubResource("RectangleShape2D_h1bpg")
+
+[node name="Guard2" type="CharacterBody2D" parent="."]
+position = Vector2(6000, 0)
+disable_mode = 2
+script = ExtResource("2_6qjyb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard2"]
+texture_filter = 1
+position = Vector2(-3500, 828)
+sprite_frames = SubResource("SpriteFrames_r8ha7")
+animation = &"patrol"
+frame = 5
+frame_progress = 0.377228
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2"]
+shape = SubResource("RectangleShape2D_h1bpg")
+
 [node name="meuble" type="TextureRect" parent="."]
 z_as_relative = false
 texture_filter = 1
