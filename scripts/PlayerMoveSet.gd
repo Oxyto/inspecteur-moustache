@@ -8,8 +8,8 @@ enum PlayerState {
 
 var current_state : PlayerState = PlayerState.IDLE
 
-onready var animated_sprite : AnimatedSprite = $AnimatedSprite
-onready var character_body : KinematicBody2D = $CharacterBody2D
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
+@onready var character_body : CharacterBody2D = $CharacterBody2D
 
 var run_speed : float = 200.0
 
@@ -22,12 +22,12 @@ func _process(delta: float) -> void:
 		PlayerState.DEATH:
 			handle_death()
 
-
 func handle_idle() -> void:
 	if character_body.is_on_floor():
 		animated_sprite.play("Idle")
 
 	if Input.is_action_pressed("ui_right"):
+		character_body.velocity.x = run_speed
 		start_running()
 
 func handle_run() -> void:
@@ -37,7 +37,7 @@ func handle_run() -> void:
 		animated_sprite.play("Jump")
 
 	if Input.is_action_pressed("ui_right"):
-		move_and_slide(Vector2(run_speed, 0))
+		character_body.velocity.x = run_speed
 	else:
 		start_idling()
 
