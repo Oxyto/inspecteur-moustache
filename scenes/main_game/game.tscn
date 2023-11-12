@@ -193,6 +193,7 @@ offset_bottom = 903.0
 texture = ExtResource("1_wu7fi")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(4000, 0)
 disable_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -340,13 +341,14 @@ offset_bottom = 900.0
 texture = ExtResource("1_wu7fi")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(4300, 828)
+position = Vector2(100, 828)
 scale = Vector2(4, 4)
 script = ExtResource("13_nrvcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D2"]
 sprite_frames = SubResource("SpriteFrames_rtxtc")
 animation = &"Death"
+frame_progress = 0.145162
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 shape = SubResource("RectangleShape2D_5606x")
