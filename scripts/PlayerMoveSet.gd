@@ -11,16 +11,13 @@ enum PlayerState {
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var character_body : CharacterBody2D = $"."
 
-const RUN_SPEED : float = 0.40
+const RUN_SPEED : float = 0.05
+const INPUT_THRESHOLD : int = 7
+const TIME_FRAME : float = 10
 
-func _process(_delta: float) -> void:
-	match current_state:
-		PlayerState.IDLE:
-			handle_idle()
-		PlayerState.RUN:
-			handle_run()
-		PlayerState.DEATH:
-			handle_death()
+@onready var was_input_pressed_last_frame: bool = false
+@onready var input_count : int = 0
+@onready var time_frame_start : float = 0.0
 
 func handle_idle() -> void:
 	animated_sprite.play("Idle")

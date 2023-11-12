@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br2pube8hk7e1"
-path="res://.godot/imported/meuble_m.png-6dddc6ce5724718ecd6791170c9b966a.ctex"
+path="res://.godot/imported/meuble_moustache.png-4ccabd58567d379e644e23b5ff248e37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Furnitures/meuble_m.png"
-dest_files=["res://.godot/imported/meuble_m.png-6dddc6ce5724718ecd6791170c9b966a.ctex"]
+source_file="res://assets/images/textures/Furnitures/meuble_moustache.png"
+dest_files=["res://.godot/imported/meuble_moustache.png-4ccabd58567d379e644e23b5ff248e37.ctex"]
 
 [params]
 

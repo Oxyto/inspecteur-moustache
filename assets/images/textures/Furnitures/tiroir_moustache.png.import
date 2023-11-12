@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw6ilrcldt0i3"
-path="res://.godot/imported/armoire_m.png-5985e567d20ceb909b4b8a1c04284ce5.ctex"
+uid="uid://csxl1bj481kvf"
+path="res://.godot/imported/tiroir_moustache.png-4f1e5ccead5317e40004069855877dc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Furnitures/armoire_m.png"
-dest_files=["res://.godot/imported/armoire_m.png-5985e567d20ceb909b4b8a1c04284ce5.ctex"]
+source_file="res://assets/images/textures/Furnitures/tiroir_moustache.png"
+dest_files=["res://.godot/imported/tiroir_moustache.png-4f1e5ccead5317e40004069855877dc0.ctex"]
 
 [params]
 

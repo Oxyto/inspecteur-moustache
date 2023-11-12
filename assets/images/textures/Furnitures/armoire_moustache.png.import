@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datl2uldnmfk1"
-path="res://.godot/imported/table_disguise.png-f0300eaabae8380416cde3a007ce1a7b.ctex"
+uid="uid://bw6ilrcldt0i3"
+path="res://.godot/imported/armoire_moustache.png-4f48100999d09d8947fc762bf4769780.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/textures/Furnitures/table_disguise.png"
-dest_files=["res://.godot/imported/table_disguise.png-f0300eaabae8380416cde3a007ce1a7b.ctex"]
+source_file="res://assets/images/textures/Furnitures/armoire_moustache.png"
+dest_files=["res://.godot/imported/armoire_moustache.png-4f48100999d09d8947fc762bf4769780.ctex"]
 
 [params]
 
