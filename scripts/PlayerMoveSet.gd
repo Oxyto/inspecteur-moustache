@@ -12,15 +12,12 @@ enum PlayerState {
 @onready var character_body : CharacterBody2D = $"."
 
 const RUN_SPEED : float = 0.05
+const INPUT_THRESHOLD : int = 7
+const TIME_FRAME : float = 3
 
-func _process(_delta: float) -> void:
-	match current_state:
-		PlayerState.IDLE:
-			handle_idle()
-		PlayerState.RUN:
-			handle_run()
-		PlayerState.DEATH:
-			handle_death()
+@onready var was_input_pressed_last_frame: bool = false
+@onready var input_count : int = 0
+@onready var time_frame_start : float = 0.0
 
 func handle_idle() -> void:
 	animated_sprite.play("Idle")
@@ -56,3 +53,41 @@ func start_running() -> void:
 
 func start_idling() -> void:
 	current_state = PlayerState.IDLE
+
+func _process(delta: float) -> void:
+	check_input_threshold(delta)
+
+	match current_state:
+		PlayerState.IDLE:
+			handle_idle()
+		PlayerState.RUN:
+			handle_run()
+		PlayerState.DEATH:
+			handle_death()
+
+func check_input_threshold(delta: float) -> void:
+	var is_input_pressed: bool = Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
+
+	if is_input_pressed:
+		if not was_input_pressed_last_frame:
+			input_count += 1
+			time_frame_start = 0.0
+			was_input_pressed_last_frame = true
+	else:
+		was_input_pressed_last_frame = false
+
+	if input_count >= INPUT_THRESHOLD:
+		var elapsed_time = time_frame_start + delta
+
+		if elapsed_time <= TIME_FRAME:
+			print("Panic action triggered!")
+			input_count = 0
+			time_frame_start = 0.0
+		else:
+			print("Time frame elapsed!")
+			input_count = 0
+			time_frame_start = 0.0
+	elif time_frame_start != 0.0:
+		print("Reset counters")
+		input_count = 0
+		time_frame_start = 0.0

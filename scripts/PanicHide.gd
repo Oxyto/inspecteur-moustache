@@ -1,33 +1,38 @@
-extends Node2D
+extends Node
 
-var inputBuffer : Array = []
-var bufferSize : int = 20  # if more than 20 inputs lile "i<ehzqhelhlrequjkqhdlukjluhk"
+const INPUT_THRESHOLD : int = 30
+const TIME_FRAME : float = 3.0
 
-var analysisInterval : float = 3.0  # 3s before reset
+var input_count : int = 0
+var time_frame_start : float = 0.0
+
+signal panic_hide_triggered
+
+func _ready() -> void:
+	set_process(true)
+	set_process_input(true)
 
 func _process(delta: float) -> void:
-	if detectUnconventionalInput():
-		hideInNearestFurniture()
+	if time_frame_start != 0.0 and delta - time_frame_start > TIME_FRAME:
+		input_count = 0
+		time_frame_start = 0.0
 
-func detectUnconventionalInput() -> bool:
-	if Input.is_key_pressed(KEY_MASK_ANY): # add key pressed to buffer
-		inputBuffer.append(str(Input.get_key_pressed()))
+func _input(event: InputEvent) -> void:
+	input_count += 1
+	check_input_threshold()
 
-		while inputBuffer.size() > bufferSize:
-			inputBuffer.pop_front()
-
-		if inputBuffer.size() >= bufferSize:
-			if inputBuffer[0].is_digit():
-				var currentTime : float = OS.get_system_time_msecs() / 1000.0
-				var firstKeyPressTime : float = inputBuffer[0].to_float()
-
-				if currentTime - firstKeyPressTime <= analysisInterval:
-					inputBuffer.clear() # clear buffer after 3s
-
-					return true
-
-	return false
-
-	func hideInNearestFurniture() -> void:
-		var player = get_node("/root/Player")
-		player.start_hiding_in_furniture()
+func check_input_threshold() -> void:
+	if input_count >= INPUT_THRESHOLD:
+		if time_frame_start == 0.0:
+			time_frame_start = 0.0
+		else:
+			if time_frame_start <= TIME_FRAME:
+				emit_signal("panic_hide_triggered")
+				input_count = 0
+				time_frame_start = 0.0
+			else:
+				input_count = 0
+				time_frame_start = 0.0
+	elif time_frame_start != 0.0:
+		input_count = 0
+		time_frame_start = 0.0

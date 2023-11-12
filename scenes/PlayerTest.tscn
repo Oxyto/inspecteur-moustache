@@ -104,3 +104,5 @@ frame_progress = 0.375974
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_23t2c")
+
+[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
